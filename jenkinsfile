@@ -10,7 +10,8 @@ pipeline {
     stage('installation') {
       steps {
        
-        sh 'npm install'  
+        sh 'npm ci'  
+sh 'npx cypress verify'
         //sh 'npm install cypress --save-dev'
       }
     }
