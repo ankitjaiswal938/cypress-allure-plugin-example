@@ -1,21 +1,23 @@
 pipeline {
-  agent any
-  tools  {
-            nodejs "MY_NodeJS"
-         }
+  agent {
+        label 'traxx-testops'
+    }
+   tools {
+        nodejs 'nodejs_18'
+    }
   stages {
     
     stage('installation') {
       steps {
        
-        bat 'npm install'  
+        sh 'npm install'  
         //sh 'npm install cypress --save-dev'
       }
     }
     stage('run e2e tests') {
     
       steps {
-        bat 'npm run cy:run'
+        sh 'npm run cy:run'
       }
     }
   }
