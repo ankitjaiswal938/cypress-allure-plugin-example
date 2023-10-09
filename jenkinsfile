@@ -1,15 +1,13 @@
 pipeline {
-  agent {
-        label 'traxx-testops'
-    }
+  agent any
    tools {
-        nodejs 'nodejs_18'
+        nodejs 'MY_NodeJS'
     }
   stages {
     
     stage('installation') {
       steps {
-       
+       sh 'npm install'
         sh 'npm install cypress --save-dev'
       }
     }
