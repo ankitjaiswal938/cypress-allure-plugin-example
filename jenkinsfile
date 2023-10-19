@@ -15,7 +15,7 @@ pipeline {
  withAllureUpload(name: '${JOB_NAME} - #${BUILD_NUMBER}', projectId: '199', results: [[path: 'allure-results']], serverId: 'ti-jenkins-default', tags: 'jenkins_test_tags') {
 sh 'npm install'              
 echo 'Creating Allure reports…'
-        sh 'npm run cy:boatApiRun'
+        sh 'npm run cy:run'
       }
 }
     }
